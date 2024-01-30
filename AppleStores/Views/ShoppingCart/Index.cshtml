@@ -1,0 +1,45 @@
+﻿@using AppleStores.Models;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_mainLayout.cshtml";
+}
+
+<h2>Index</h2>
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Sub Total</th>
+    </tr>
+    @foreach(var cart in (List<Cart>)Session["Cart"])
+    {
+    <tr>
+        <td>@cart.Product.ProductName</td>
+        <td>@cart.Product.Price</td>
+        <td>@cart.Quantity</td>
+        <td>@(String.Format("{0:N0}",cart.Product.Price*cart.Quantity))</td>
+        <td>
+            @Html.ActionLink("Delete","Delete","ShoppingCart", new { id = cart.Product.ProductId },
+           new { onclick = "return confirm ('Are you sure you want to delete this?')"})
+        </td>
+    </tr>
+    }
+    <tr>
+        <td colspan="3">Total</td>
+        <td>
+            @{ 
+                List<Cart> temp = (List<Cart>)Session["Cart"];
+                var total = String.Format("{0:N0}", temp.Sum(x => x.Quantity * x.Product.Price));
+            }
+            @total USD
+        </td>
+    </tr>
+</table>
+<br/>
+@Html.ActionLink("Continue Shopping?","Index","Products" )
+
+
+
+
+

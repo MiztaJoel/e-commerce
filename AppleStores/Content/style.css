@@ -1,0 +1,164 @@
+﻿body {
+    background-color: #f2F2f2;
+    margin: 0;
+    
+}
+
+ul {
+    list-style: none;
+}
+
+.clear {
+    clear: both;
+}
+
+.div-container {
+}
+
+    .div-container .div-header {
+        background-color: #333;
+        color: white;
+        padding: 20px
+    }
+
+    .div-container .div-topmenu {
+        background-color: #ffffff;
+        padding: 20px;
+    }
+
+        .div-container .div-topmenu ul {
+            margin: 0px
+        }
+
+            .div-container .div-topmenu ul li {
+                padding: 0 10px 0 10px;
+                float: left;
+                margin-top: -7px;
+            }
+
+                .div-container .div-topmenu ul li a {
+                    text-decoration: none;
+                    color: black;
+                    text-transform: uppercase;
+                    font-weight: bold;
+                }
+
+                    .div-container .div-topmenu ul li a:hover {
+                        background-color: black;
+                        color: #ffffff
+                    }
+
+
+
+    .div-container .div-left {
+        margin-top: 5px;
+        float: left;
+        width: 15%;
+        border-right: 5px solid #ffffff;
+    }
+
+        .div-container .div-left .category-title {
+            background-color: black;
+            text-transform: uppercase;
+            color: white;
+            text-align: center;
+            padding: 5px;
+        }
+
+        .div-container .div-left .category-list {
+        }
+
+            .div-container .div-left .category-list ul li {
+            }
+
+                .div-container .div-left .category-list ul li a {
+                    text-decoration: none;
+                    line-height: 25px;
+                }
+
+                    .div-container .div-left .category-list ul li a:hover {
+                        text-decoration: underline;
+                    }
+    /*breadcrumbPart*/
+    .div-container .div-main {
+        float: left;
+        width: 84%;
+    }
+        .div-container .div-main .detail-view .dl-horizontal .detail-name {
+            padding-left: 0px;
+            width: 89px;
+        }
+
+        .div-container .div-main .top-breadcrumb {
+        }
+
+            .div-container .div-main .top-breadcrumb ul li {
+                float: left;
+            }
+
+                .div-container .div-main .top-breadcrumb ul li a {
+                    text-decoration: none;
+                    padding: 5px;
+                }
+
+                    .div-container .div-main .top-breadcrumb ul li a:hover {
+                        text-decoration: underline;
+                    }
+
+                .div-container .div-main .top-breadcrumb ul li .span-breadcrumb {
+                    font-size: 10px;
+                    color: #ff6a00;
+                }
+
+        /*Main-Content Part*/
+        .div-container .div-main .main-content {
+            float: left;
+            padding: 5px 10px 5px 10px;
+        }
+
+            .div-container .div-main .main-content .content-image {
+            }
+
+                .div-container .div-main .main-content .content-image img {
+                    width: 160px;
+                    height: 160px;
+                }
+
+            .div-container .div-main .main-content .content-title {
+            }
+
+                .div-container .div-main .main-content .content-title a {
+                    text-decoration: none;
+                }
+
+                    .div-container .div-main .main-content .content-title a:hover {
+                        color: #ff6a00
+                    }
+
+            .div-container .div-main .main-content .content-price {
+                color: #ff0000
+            }
+
+    /*Footer Part */
+    .div-container .div-footer {
+        background-color: #333;
+        color: white;
+        padding: 5px 10px 5px 20px;
+        line-height: 10px;
+    }
+
+        .div-container .div-footer a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+            .div-container .div-footer a:hover {
+                text-decoration: underline;
+            }
+    .div-container .div-main .div-pagination li {
+        display: inline;
+        padding:3px;
+    }
+    .div-container .div-main .div-pagination .pagination {
+        padding-left: 0px;
+    }

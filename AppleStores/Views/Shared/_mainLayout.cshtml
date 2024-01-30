@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <link href="@Url.Content("~/Content/style.css")" type="text/css" rel="stylesheet" />
+    <title></title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="div-container">
+        <div class="div-header">
+            Shopping Online - Get Reward
+        </div><!--div-header-->
+        <div class="clear"></div>
+        <div class="div-topmenu">
+            <ul>
+                <li>
+                    @Html.ActionLink("Home", "Index", "Home")
+                </li>
+                <li>
+                    @Html.ActionLink("News", "Index", "News")
+                </li>
+                <li>
+                    @Html.ActionLink("Products", "Index", "Products")
+                </li>
+                <li>
+                    @Html.ActionLink("Contact Us", "Index", "ContactUs")
+                </li>
+                <li>
+                    @Html.ActionLink("Manage Color", "Index", "Colors")
+                </li>
+                <li>
+                    @Html.ActionLink("News Management", "Index", "NewsManagement")
+                </li>
+                <li>
+                    @Html.ActionLink("Cart", "Index", "ShoppingCart")
+                </li>
+                <li>
+                    @Html.ActionLink("Order", "Index", "Order")
+                </li>
+            </ul>
+        </div><!--div-topmenu-->
+        <div class="clear"></div>
+        <div class="div-left ">
+            <div class="category-title">Category</div><!--category-title-->
+            <div class="category-list">
+                <ul>
+                    @Html.Action("CategoryPartial","Category")
+                </ul>
+            </div><!--category-list-->
+        </div><!--div-left-->
+        <div class="div-main">
+            <div class="main-content">
+                @RenderBody()
+            </div><!--main-content-->
+        </div><!--div-main-->
+        <div class="clear"></div>
+        <div class="div-footer">
+
+            <p>&copy; @DateTime.Now.Year - MiztaJoel Apple</p>
+            <p>Email:<a href="mailto:olugaabiola21@gmail.com" />MiztaJoel</p>
+            <p>Facebook:<a href="https://facebook.com/abiola" /></p>
+
+            @Scripts.Render("~/bundles/jquery")
+            @Scripts.Render("~/bundles/bootstrap")
+            @RenderSection("scripts", required: false)
+
+        </div><!--div-footer-->
+    </div><!--div-container-->
+</body>
+</html>

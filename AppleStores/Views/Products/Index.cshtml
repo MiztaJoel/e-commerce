@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Product Page";
+    Layout = "~/Views/Shared/_mainLayout.cshtml";
+}
+<div class="top-breadcrumb">
+    <ul>
+        <li><a href="#">Home</a><span class="span-breadcrumb">>></span></li>
+        <li><a href="#">Product</a></li>
+    </ul>
+</div><!--top-breadcrumb-->
+
+<div class="clear"></div>
+
+@Html.Action("ProductListPartial", "Products")

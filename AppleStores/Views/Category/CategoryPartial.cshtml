@@ -1,0 +1,12 @@
+﻿@using AppleStores.Models
+
+@model List<Cateory>
+
+              <ul>
+                  @{
+                      foreach (var item in Model)
+                      {
+                          <li><a href="#">@item.Name</a></li>
+                      }
+                  }
+              </ul>

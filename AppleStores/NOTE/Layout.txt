@@ -1,0 +1,2 @@
+﻿In the Layout View, the partial controller created in Category Controller is called into the category bar.
+so it is used to  render the category Data in database dynamically.

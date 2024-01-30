@@ -1,0 +1,13 @@
+﻿Creating Empty Controller(withoutEntity)
+create a model class cart.cs 
+inside the model, I call the instance of Product as Product and int as quantity.
+then, i write a public construct function that is used to updated product and quantity.
+
+View: emptity view was created without no model
+
+OrderingNow ActionName: fistly check if session name cart is null, then list the product which is equal to  
+query id and initialize the quantity to be 1 then save the list inside cart session.
+but if the session is not null then, convert every items to List of Cart class, then add it new instance of
+cart that will return all the product that is equal to query id and initalize quantity to 1.
+
+ 

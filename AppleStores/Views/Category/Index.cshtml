@@ -1,0 +1,41 @@
+﻿@model IEnumerable<AppleStores.Models.Cateory>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_mainLayout.cshtml";
+}
+
+<h2>Category</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            Action
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    using (Html.BeginForm("Delete", "Category", new { id = item.CategoryId }))
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.CategoryId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.CategoryId }) |
+            @*@Html.ActionLink("Delete", "Delete", new { id = item.CategoryId })*@
+            @Html.AntiForgeryToken()
+            <input type="submit" value="Delete" class="btn btn-primary" onclick="return confirm('Are you sure you want to delete record with ID = @item.CategoryId');" />
+        </td>
+    </tr>
+    }
+}
+
+</table>

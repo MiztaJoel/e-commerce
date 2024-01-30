@@ -1,0 +1,26 @@
+﻿@model AppleStores.Models.Cateory
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_mainLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div class="detail-view">
+    <hr />
+    <dl class="dl-horizontal">
+        <dt class="detail-name">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CategoryId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

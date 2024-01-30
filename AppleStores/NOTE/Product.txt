@@ -1,0 +1,6 @@
+﻿In the rendering Body of the Product Page,we created partialView to render all the list of data from product
+data.
+
+Pagination: I install PagedListMVC which is used in the Product Controller and PartialView for pagination.
+
+so the PartialView is called into the ProductView

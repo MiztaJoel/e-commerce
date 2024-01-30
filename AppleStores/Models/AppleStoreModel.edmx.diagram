@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e4117999d5b94320b808641b83ffb08b" Name="Diagram1">
+        <EntityTypeShape EntityType="AppleDatabaseModel.Cateory" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppleDatabaseModel.Color" Width="1.5" PointX="3.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppleDatabaseModel.Model" Width="1.5" PointX="3.75" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppleDatabaseModel.News" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppleDatabaseModel.Product" Width="1.5" PointX="6" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppleDatabaseModel.Storage" Width="1.5" PointX="3.75" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppleDatabaseModel.User" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
+        <AssociationConnector Association="AppleDatabaseModel.FK_Product_Cateory" ManuallyRouted="false" />
+        <AssociationConnector Association="AppleDatabaseModel.FK_Product_Color" ManuallyRouted="false" />
+        <AssociationConnector Association="AppleDatabaseModel.FK_Product_Model" ManuallyRouted="false" />
+        <AssociationConnector Association="AppleDatabaseModel.FK_News_User" ManuallyRouted="false" />
+        <AssociationConnector Association="AppleDatabaseModel.FK_Product_Storage" ManuallyRouted="false" />
+        <AssociationConnector Association="AppleDatabaseModel.FK_Product_User" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
