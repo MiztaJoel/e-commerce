@@ -4,40 +4,74 @@
     Layout = "~/Views/Shared/_mainLayout.cshtml";
 }
 
-<h2>Index</h2>
-<table border="1">
-    <tr>
-        <th>Name</th>
-        <th>Price</th>
-        <th>Quantity</th>
-        <th>Sub Total</th>
-    </tr>
-    @foreach(var cart in (List<Cart>)Session["Cart"])
+<h2>Cart</h2>
+@{
+    if (Session["Cart"] != null)
     {
-    <tr>
-        <td>@cart.Product.ProductName</td>
-        <td>@cart.Product.Price</td>
-        <td>@cart.Quantity</td>
-        <td>@(String.Format("{0:N0}",cart.Product.Price*cart.Quantity))</td>
-        <td>
-            @Html.ActionLink("Delete","Delete","ShoppingCart", new { id = cart.Product.ProductId },
-           new { onclick = "return confirm ('Are you sure you want to delete this?')"})
-        </td>
-    </tr>
+        using (Html.BeginForm("UpdateCart", "ShoppingCart", FormMethod.Post))
+        {
+            <table class="shopping-cart  ">
+                <tr>
+                    <th class="name">Name</th>
+                    <th>Price</th>
+                    <th class="quantity">Quantity </th>
+                    <th>Sub Total</th>
+                </tr>
+                @foreach (var cart in (List<Cart>)Session["Cart"])
+                {
+                    <tr>
+                        @*<td>@cart.Product.ProductName</td>*@
+                        <td>@Html.ActionLink(cart.Product.ProductName, "Details", "Products", new { id = cart.Product.ProductId }, new { @class = "delete-shopping" })</td>
+                        @*<td>@cart.Product.Price</td>*@
+                        <td>$@(String.Format("{0:N0}", cart.Product.Price))</td>
+                        <td>
+                            <input type="text" name="quantity" id="quantity" value="@cart.Quantity" />
+                            &nbsp;<span id="errmsg"></span>
+                        </td>
+                        <td>
+                           $@(String.Format("{0:N0}", cart.Product.Price * cart.Quantity))
+                        </td>
+                        <td>
+                            @Html.ActionLink("Delete", "Delete", "ShoppingCart", new { id = cart.Product.ProductId },
+                            new { onclick = "return confirm ('Are you sure you want to delete this?');",@class ="delete-shopping"})
+                        </td>
+                    </tr>@*  End of foreach caet item*@}
+                <tr>
+                    <td colspan="3" class="total-price-text">Total</td>
+                    <td class="total-price-digit">
+                        @{
+                            List<Cart> temp = (List<Cart>)Session["Cart"];
+                            var total = String.Format("{0:N0}", temp.Sum(x => x.Quantity * x.Product.Price));
+                        }
+                        $@total 
+                    </td>
+                </tr>
+            </table>
+            <br />
+            @Html.ActionLink("Continue Shopping", "Index", "Products", null, new { @class = "continue-shopping" })
+            <input type="submit" value="Update Cart" class="update-shopping" />
+            @Html.ActionLink("CheckOut", "CheckOut", "ShoppingCart",null, new { @class = "continue-shopping" })
+        }
     }
-    <tr>
-        <td colspan="3">Total</td>
-        <td>
-            @{ 
-                List<Cart> temp = (List<Cart>)Session["Cart"];
-                var total = String.Format("{0:N0}", temp.Sum(x => x.Quantity * x.Product.Price));
+    else
+    {
+        <h4> No items in your cart!!!</h4>
+    }
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        //called when key is pressed in textbox
+        $("#quantity").keypress(function (e) {
+            //if the letter is not a digit, we will display the error message and dont allow to type anything
+            if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+                //we will display error message
+                $("#errmsg").html("Enter digits only!").show().fadeOut("slow");
+                return false;
             }
-            @total USD
-        </td>
-    </tr>
-</table>
-<br/>
-@Html.ActionLink("Continue Shopping?","Index","Products" )
+        });
+    });
+</script>
 
 
 

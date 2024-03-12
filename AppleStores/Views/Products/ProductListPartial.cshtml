@@ -10,13 +10,17 @@
     {
 <div class="main-content">
     <div class="content-image">
-        <img src='@Url.Content("~/Media/Image/Layout/"+item.Image)' />
+        <a href="@Url.Action("Details","Products",new { id = item.ProductId},null)">
+            <img src='@Url.Content("~/Media/Image/Layout/"+item.Image)' />
+        </a>
+        @*<img src='@Url.Content("~/Media/Image/Layout/"+item.Image)' />*@
     </div><!--content-image-->
     <div class="content-title">
-        <a href="#">@item.ProductName</a>
+        @*<a href="#">@item.ProductName</a>*@
+        @Html.ActionLink(@item.ProductName,"Details","Products",new { id = item.ProductId},null)
     </div><!--content-title-->
     <div class="content-price">
-        Price: $@item.Price
+        Price: $@(String.Format("{0:N0}", item.Price)) 
     </div><!--content-price-->
     <div class="content-price">
        @Html.ActionLink("Add to Cart", "OrderNow","ShoppingCart", new { id = item.ProductId},null)
@@ -27,5 +31,6 @@
 <div class="clear"></div>
 Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
 <div class="div-pagination">
-    @Html.PagedListPager(Model, Page =>Url.Action("index", new { page = Page }))
+    @*@Html.PagedListPager(Model, Page =>Url.Action("index", new { page = Page }))*@
+    @Html.PagedListPager(Model, Page => Url.Action("index", new { page = Page, category =ViewBag.category }))
 </div>

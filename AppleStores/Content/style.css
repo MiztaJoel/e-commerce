@@ -12,8 +12,21 @@ ul {
     clear: both;
 }
 
-.div-container {
+table{
+    border-collapse:collapse;
 }
+table, th,td{
+    border:1px solid black;
+}
+table .name{
+    padding-left:56px;
+}
+    table .quantity {
+        padding-left: 56px;
+    }
+
+    .div-container {
+    }
 
     .div-container .div-header {
         background-color: #333;
@@ -162,3 +175,59 @@ ul {
     .div-container .div-main .div-pagination .pagination {
         padding-left: 0px;
     }
+    #errmsg{
+        color:red;
+    }
+.error {
+    color: red;
+}
+.div-main .main-content .shopping-cart th {
+    background-color: #1d5dd2;
+    color: white;
+}
+
+.div-main .main-content .shopping-cart #quantity {
+    width: 30%;
+    border: 1px solid #808080;
+    text-align: center;
+    margin-left: 30%;
+}
+
+.div-main .main-content .shopping-cart .delete-shopping:hover {
+    color: orange;
+}
+
+.div-main .main-content .continue-shopping {
+    background-color: #1d5dd2;
+    color: white;
+    padding: 10px;
+}
+
+.div-main .main-content .update-shopping {
+    background-color: #1d5dd2;
+    color: white;
+    padding: 8px 12px 8px 12px;
+    border: none;
+}
+.div-main .main-content .shopping-cart .total-price-text {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: red;
+}
+
+.div-main .main-content .shopping-cart .total-price-digit {
+    color: red;
+    font-weight: bold;
+}
+.div-main .main-content .product-detail .product-image{
+    float:left;
+    width:50%;
+}
+    .div-main .main-content .product-detail .product-image img {
+     width:200px;
+     height:200px
+    }
+.div-main .main-content .product-detail .product-detail-content  {
+    float:left;
+    width:50%;
+}

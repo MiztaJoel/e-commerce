@@ -10,4 +10,6 @@ query id and initialize the quantity to be 1 then save the list inside cart sess
 but if the session is not null then, convert every items to List of Cart class, then add it new instance of
 cart that will return all the product that is equal to query id and initalize quantity to 1.
 
+
+
  

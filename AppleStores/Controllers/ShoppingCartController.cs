@@ -68,5 +68,60 @@ namespace AppleStores.Controllers
 			lstCart.RemoveAt(check);
 			return View("Index");
 		}
+		public ActionResult UpdateCart(FormCollection frc)
+		{
+			string[] quantities = frc.GetValues("quantity");
+			List<Cart> lstCart = (List<Cart>)Session[strCart];
+			for(int i = 0; i < lstCart.Count; i++)
+			{
+				lstCart[i].Quantity = Convert.ToInt32(quantities[i]);
+			}
+			Session[strCart] = lstCart;
+			return View("Index");
+		}
+
+		public ActionResult CheckOut()
+		{
+			
+			return View("CheckOut");
+		}
+
+		public ActionResult ProcessOrder(FormCollection frc)
+		{
+			//1. save the order into order table
+			List<Cart> lstCart = (List<Cart>)Session[strCart];
+			Order order = new Order()
+			{
+				CustomerName = frc["cusName"],
+				CustomerPhone = frc["cusPhone"],
+				CustomerEmail = frc["cusEmail"],
+				CustomerAddress = frc["cusAddress"],
+				OrderDate = DateTime.Now,
+				PaymentType = "Cash",
+				Status = "Processing"
+
+			};
+
+			db.Orders.Add(order);
+			db.SaveChanges();
+
+			//2. save the order into order detail table
+			foreach(Cart cart in lstCart)
+			{
+				OrderDetail orderDetail = new OrderDetail()
+				{
+					OrderID = order.OrderID,
+					ProductID = cart.Product.ProductId,
+					Quantity = cart.Quantity,
+					Price = cart.Product.Price
+				};
+
+				db.OrderDetails.Add(orderDetail);
+				db.SaveChanges(); 
+			}
+			//3. Remove shopping cart session
+			Session.Remove(strCart);
+			return View("OrderSuccess");
+		}
 	}
 }

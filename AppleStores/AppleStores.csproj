@@ -45,6 +45,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -161,6 +164,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AppleStoreModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\CaptchaResponse.cs" />
     <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\Cateory.cs">
       <DependentUpon>AppleStoreModel.tt</DependentUpon>
@@ -168,10 +172,19 @@
     <Compile Include="Models\Color.cs">
       <DependentUpon>AppleStoreModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ContactU.cs">
+      <DependentUpon>AppleStoreModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Model.cs">
       <DependentUpon>AppleStoreModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\News.cs">
+      <DependentUpon>AppleStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Order.cs">
+      <DependentUpon>AppleStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OrderDetail.cs">
       <DependentUpon>AppleStoreModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Product.cs">
@@ -182,6 +195,12 @@
     </Compile>
     <Compile Include="Models\User.cs">
       <DependentUpon>AppleStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyReports\OrderListing.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OrderListing.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -269,6 +288,10 @@
     <Content Include="Views\Colors\Delete.cshtml" />
     <Content Include="Views\Colors\Details.cshtml" />
     <Content Include="Views\Colors\Edit.cshtml" />
+    <Content Include="Views\Products\Details.cshtml" />
+    <Content Include="Views\ShoppingCart\CheckOut.cshtml" />
+    <Content Include="Views\ShoppingCart\OrderSuccess.cshtml" />
+    <Content Include="Views\Order\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -291,6 +314,13 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MyReports\OrderListing.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>OrderListing.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

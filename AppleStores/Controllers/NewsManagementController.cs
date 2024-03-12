@@ -7,6 +7,9 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using AppleStores.Models;
+using System.IO;
+using System.Web.UI;
+using System.Web.UI.WebControls;
 
 namespace AppleStores.Controllers
 {
@@ -128,5 +131,47 @@ namespace AppleStores.Controllers
             }
             base.Dispose(disposing);
         }
-    }
+
+		public void ExportContentToCSV()
+		{
+			var strw = new StringWriter();
+			strw.WriteLine("\"NewsId\",\"Title\",\"ShortDescription\",\"CreatedDate\",\"Status\"");
+			Response.ClearContent();
+			Response.AddHeader("content-disposition",
+										string.Format("attachment;filename=NewsListing_{0}.csv",DateTime.Now));
+			Response.ContentType = "text/csv";
+
+			var listNews = db.News.OrderBy(x => x.NewsId.ToString());
+			foreach (var news in listNews)
+			{
+				strw.WriteLine(string.Format("\"{0}\",\"{1}\",\"{2}\",\"{3}\",\"{4}\"",
+											news.NewsId,news.Title,news.ShortDescription,news.CreatedDate
+											,news.Status));
+			}
+			Response.Write(strw.ToString());
+			Response.End();	
+		}
+
+		public void ExportContentToExcel()
+		{
+			var gv = new GridView();
+			gv.DataSource = db.News.OrderBy(x => x.NewsId).ToList();
+			gv.DataBind();
+
+			Response.ClearContent();
+			Response.AddHeader("content-disposition",
+										string.Format("attachment;filename=NewsListing_{0}.xls", DateTime.Now));
+			Response.ContentType = "application/excel";
+
+			var strw = new StringWriter();
+			var	htmlTw = new HtmlTextWriter(strw);
+			gv.RenderControl(htmlTw);
+			Response.Write(strw.ToString());
+			Response.End();
+
+
+
+		}
+
+	}
 }

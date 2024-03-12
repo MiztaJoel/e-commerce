@@ -12,32 +12,24 @@ namespace AppleStores.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Product
+    public partial class Order
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Product()
+        public Order()
         {
             this.OrderDetails = new HashSet<OrderDetail>();
         }
     
-        public int ProductId { get; set; }
-        public string ProductName { get; set; }
-        public string Image { get; set; }
-        public Nullable<double> Price { get; set; }
-        public Nullable<int> UserId { get; set; }
-        public Nullable<int> CategoryId { get; set; }
-        public Nullable<int> ColorId { get; set; }
-        public Nullable<int> ModelId { get; set; }
-        public Nullable<int> StorageId { get; set; }
-        public Nullable<System.DateTime> SellStartDAte { get; set; }
-        public Nullable<System.DateTime> SellEndDate { get; set; }
-        public Nullable<int> IsNew { get; set; }
+        public int OrderID { get; set; }
+        public string OrderName { get; set; }
+        public Nullable<System.DateTime> OrderDate { get; set; }
+        public string PaymentType { get; set; }
+        public string Status { get; set; }
+        public string CustomerName { get; set; }
+        public string CustomerPhone { get; set; }
+        public string CustomerEmail { get; set; }
+        public string CustomerAddress { get; set; }
     
-        public virtual Cateory Cateory { get; set; }
-        public virtual Color Color { get; set; }
-        public virtual Model Model { get; set; }
-        public virtual Storage Storage { get; set; }
-        public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
     }

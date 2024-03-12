@@ -18,6 +18,11 @@
         <AssociationConnector Association="AppleDatabaseModel.FK_News_User" ManuallyRouted="false" />
         <AssociationConnector Association="AppleDatabaseModel.FK_Product_Storage" ManuallyRouted="false" />
         <AssociationConnector Association="AppleDatabaseModel.FK_Product_User" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="AppleDatabaseModel.Order" Width="1.5" PointX="8" PointY="0.5" />
+        <EntityTypeShape EntityType="AppleDatabaseModel.OrderDetail" Width="1.5" PointX="10.25" PointY="5.875" />
+        <AssociationConnector Association="AppleDatabaseModel.FK_OrderDetail_Order" />
+        <AssociationConnector Association="AppleDatabaseModel.FK_OrderDetail_Product" />
+        <EntityTypeShape EntityType="AppleDatabaseModel.ContactU" Width="1.5" PointX="10.25" PointY="0.875" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
