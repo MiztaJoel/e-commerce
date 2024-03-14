@@ -21,7 +21,7 @@ namespace AppleStores.Controllers
 		public ActionResult ValidateCaptcha(FormCollection collection)
 		{
 			var respone = Request["g-recaptcha-response"];
-			const string secret = "****************";
+			const string secret = "***********************";
 
 			var client = new WebClient();
 			var reply = client.DownloadString(
